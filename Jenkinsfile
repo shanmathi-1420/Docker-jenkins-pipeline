@@ -20,20 +20,15 @@ pipeline {
           sh 'docker push $DOCKER_BFLASK_IMAGE'
         }
       }
-    }
-    
+    }   
   }
 
 post{
       always{
             sh 'docker rm -f mypycont'
             sh 'docker run --name mypycont -d -p 3000:5000 my-flask'
-            mail to: "jeelani.yasmin@gmail.com",
-            subject: "Notification mail from jenkins",
-            body: "CiCd pipeline"
-        }
-}
-
+      }
+   }
 }
     
 
