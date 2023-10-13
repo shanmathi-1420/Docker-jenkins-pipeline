@@ -29,7 +29,7 @@
       }
     }
   }
-
+    
   post {
     always {
       sh 'docker rm -f mypycont'
